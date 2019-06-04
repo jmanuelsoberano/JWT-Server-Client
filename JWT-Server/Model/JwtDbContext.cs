@@ -6,6 +6,8 @@ namespace JWT_Server.Model
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<AppUser> Users { get; set; }
+        public DbSet<AppUserClaim> Claims { get; set; }
 
         private const string CONN =
             @"Server=Localhost;

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace JWT_Sever.Controllers
+namespace JWT_Server.Controllers
 {
     public class BaseApiController : ControllerBase
     {

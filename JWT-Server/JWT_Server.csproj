@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RootNamespace>JWT_Sever</RootNamespace>
+    <RootNamespace>JWT_Server</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
