@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace JWT_Server.Model
 {
     [Table("User", Schema = "Security")]
-    public class AppUser
+    public partial class AppUser
     {
         [Required()]
         [Key()]

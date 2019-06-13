@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JWT_Server.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using JWT_Server.Model;
-using JWT_Sever.Controllers;
 
 namespace JWT_Server.Controllers
 {
@@ -24,6 +23,8 @@ namespace JWT_Server.Controllers
                 {
                     if (db.Categories.Count() > 0)
                     {
+                        // NOTE: Declare 'list' outside the using to avoid 
+                        // it being disposed before it is returned.
                         list = db.Categories.OrderBy(p => p.CategoryName).ToList();
                         ret = StatusCode(StatusCodes.Status200OK, list);
                     }
@@ -36,11 +37,11 @@ namespace JWT_Server.Controllers
             }
             catch (Exception ex)
             {
-                ret = HandleException(ex, "Exception trying to get all Categories");
+                ret = HandleException(ex,
+                     "Exception trying to get all Categories");
             }
 
             return ret;
         }
-
     }
 }

@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using JWT_Server.Model;
 using Microsoft.AspNetCore.Authorization;
-using JWT_Sever.Controllers;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JWT_Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : BaseApiController
     {
         [HttpGet]
@@ -47,7 +46,7 @@ namespace JWT_Server.Controllers
         public IActionResult Get(int id)
         {
             IActionResult ret = null;
-            Product entity = new Product();
+            Product entity = null;
 
             try
             {
@@ -60,13 +59,15 @@ namespace JWT_Server.Controllers
                     }
                     else
                     {
-                        ret = StatusCode(StatusCodes.Status404NotFound, "Can't Find Product: " + id.ToString());
+                        ret = StatusCode(StatusCodes.Status404NotFound,
+                                 "Can't Find Product: " + id.ToString());
                     }
                 }
             }
             catch (Exception ex)
             {
-                ret = HandleException(ex, "Exception trying to retrieve a single product.");
+                ret = HandleException(ex,
+                  "Exception trying to retrieve a single product.");
             }
 
             return ret;
@@ -75,7 +76,8 @@ namespace JWT_Server.Controllers
         [HttpPost()]
         public IActionResult Post([FromBody]Product entity)
         {
-            IActionResult result = null;
+            IActionResult ret = null;
+
             try
             {
                 using (var db = new JwtDbContext())
@@ -84,26 +86,27 @@ namespace JWT_Server.Controllers
                     {
                         db.Products.Add(entity);
                         db.SaveChanges();
-                        result = StatusCode(StatusCodes.Status201Created, entity);
+                        ret = StatusCode(StatusCodes.Status201Created,
+                            entity);
                     }
                     else
                     {
-                        result = StatusCode(StatusCodes.Status400BadRequest, "Invalid object passed to POST method");
+                        ret = StatusCode(StatusCodes.Status400BadRequest, "Invalid object passed to POST method");
                     }
                 }
             }
             catch (Exception ex)
             {
-                result = HandleException(ex, "Exception trying to insert a new product");
+                ret = HandleException(ex, "Exception trying to insert a new product");
             }
 
-            return result;
+            return ret;
         }
 
         [HttpPut()]
         public IActionResult Put([FromBody]Product entity)
         {
-            IActionResult result = null;
+            IActionResult ret = null;
 
             try
             {
@@ -113,26 +116,26 @@ namespace JWT_Server.Controllers
                     {
                         db.Update(entity);
                         db.SaveChanges();
-                        result = StatusCode(StatusCodes.Status200OK, entity);
+                        ret = StatusCode(StatusCodes.Status200OK, entity);
                     }
                     else
                     {
-                        result = StatusCode(StatusCodes.Status400BadRequest, "Invalid object passed to PUT method");
+                        ret = StatusCode(StatusCodes.Status400BadRequest, "Invalid object passed to PUT method");
                     }
                 }
             }
             catch (Exception ex)
             {
-                result = HandleException(ex, "Exception trying to update product: " + entity.ProductId.ToString());
+                ret = HandleException(ex, "Exception trying to update product: " + entity.ProductId.ToString());
             }
 
-            return result;
+            return ret;
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            IActionResult result = null;
+            IActionResult ret = null;
             Product entity = null;
 
             try
@@ -145,15 +148,15 @@ namespace JWT_Server.Controllers
                         db.Products.Remove(entity);
                         db.SaveChanges();
                     }
-                    result = StatusCode(StatusCodes.Status200OK, true);
+                    ret = StatusCode(StatusCodes.Status200OK, true);
                 }
             }
             catch (Exception ex)
             {
-                result = HandleException(ex, "Exception trying to delete product: " + id.ToString());
+                ret = HandleException(ex, "Exception trying to delete product: " + id.ToString());
             }
 
-            return result;
+            return ret;
         }
 
     }

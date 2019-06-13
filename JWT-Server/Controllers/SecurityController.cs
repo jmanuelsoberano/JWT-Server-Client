@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using JWT_Server.Security;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using JWT_Server.Model;
+using JWT_Server.Security;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JWT_Server.Controllers
 {
@@ -9,25 +13,31 @@ namespace JWT_Server.Controllers
     [ApiController]
     public class SecurityController : BaseApiController
     {
+        private JwtSettings _settings;
+        public SecurityController(JwtSettings settings)
+        {
+            _settings = settings;
+        }
+
         [HttpPost("login")]
         public IActionResult Login([FromBody]AppUser user)
         {
-            IActionResult result = null;
+            IActionResult ret = null;
             AppUserAuth auth = new AppUserAuth();
-            SecurityManager mgr = new SecurityManager();
+            SecurityManager mgr = new SecurityManager(_settings);
 
             auth = mgr.ValidateUser(user);
-
             if (auth.IsAuthenticated)
             {
-                result = StatusCode(StatusCodes.Status200OK, auth);
+                ret = StatusCode(200, auth);
             }
             else
             {
-                result = StatusCode(StatusCodes.Status404NotFound, "Invalid User Name/Password");
+                ret = StatusCode(404, "Invalid User Name/Password.");
             }
 
-            return result;
+            return ret;
         }
+
     }
 }
