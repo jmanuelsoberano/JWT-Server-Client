@@ -14,6 +14,7 @@ namespace JWT_Server.Controllers
     public class ProductController : BaseApiController
     {
         [HttpGet]
+        [Authorize(Policy = "CanAccessProducts")]
         public IActionResult Get()
         {
             IActionResult ret = null;

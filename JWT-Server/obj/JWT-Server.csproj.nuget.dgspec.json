@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server\\JWT-Server.csproj": {}
+    "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server-Client\\JWT-Server\\JWT-Server.csproj": {}
   },
   "projects": {
-    "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server\\JWT-Server.csproj": {
+    "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server-Client\\JWT-Server\\JWT-Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server\\JWT-Server.csproj",
+        "projectUniqueName": "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server-Client\\JWT-Server\\JWT-Server.csproj",
         "projectName": "JWT-Server",
-        "projectPath": "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server\\JWT-Server.csproj",
+        "projectPath": "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server-Client\\JWT-Server\\JWT-Server.csproj",
         "packagesPath": "C:\\Users\\jmcso\\.nuget\\packages\\",
-        "outputPath": "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server\\obj\\",
+        "outputPath": "C:\\Proyectos\\@jmanuelsoberano\\JWT-Server-Client\\JWT-Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

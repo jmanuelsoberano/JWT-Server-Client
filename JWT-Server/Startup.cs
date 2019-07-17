@@ -65,6 +65,8 @@ namespace JWT_Server
                 cfg.AddPolicy("CanAccessProducts", p =>
                     p.RequireClaim("CanAccessProducts", "true")));
 
+            services.AddCors();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -80,6 +82,8 @@ namespace JWT_Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseAuthentication();
 
