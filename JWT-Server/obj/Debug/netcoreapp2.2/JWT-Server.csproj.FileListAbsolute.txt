@@ -23,7 +23,6 @@ C:\Proyectos\@jmanuelsoberano\JWT-Server-Client\JWT-Server\bin\Debug\netcoreapp2
 C:\Proyectos\@jmanuelsoberano\JWT-Server-Client\JWT-Server\bin\Debug\netcoreapp2.2\JWT-Server.runtimeconfig.dev.json
 C:\Proyectos\@jmanuelsoberano\JWT-Server-Client\JWT-Server\bin\Debug\netcoreapp2.2\JWT-Server.dll
 C:\Proyectos\@jmanuelsoberano\JWT-Server-Client\JWT-Server\bin\Debug\netcoreapp2.2\JWT-Server.pdb
-C:\Proyectos\@jmanuelsoberano\JWT-Server-Client\JWT-Server\obj\Debug\netcoreapp2.2\JWT-Server.csprojAssemblyReference.cache
 C:\Proyectos\@jmanuelsoberano\JWT-Server-Client\JWT-Server\obj\Debug\netcoreapp2.2\JWT-Server.csproj.CoreCompileInputs.cache
 C:\Proyectos\@jmanuelsoberano\JWT-Server-Client\JWT-Server\obj\Debug\netcoreapp2.2\JWT-Server.RazorAssemblyInfo.cache
 C:\Proyectos\@jmanuelsoberano\JWT-Server-Client\JWT-Server\obj\Debug\netcoreapp2.2\JWT-Server.RazorAssemblyInfo.cs
