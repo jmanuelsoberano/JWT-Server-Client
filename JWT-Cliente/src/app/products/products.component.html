@@ -1,1 +1,33 @@
-<p>products works!</p>
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" [routerLink]="['/categories']">Categories</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" [routerLink]="['/product']">New Product</a>
+    </li>
+</ul>
+<div class="box">
+        <h4>Lists Products</h4>
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">productId</th>
+                        <th scope="col">productName</th>
+                        <th scope="col">introductionDate</th>
+                        <th scope="col">price</th>
+                        <th scope="col">url</th>
+                        <th scope="col">categoryId</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td scope="row">{{product.productId}}</td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.introductionDate}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.url}}</td>
+                        <td>{{product.categoryId}}</td>
+                    </tr>        
+                </tbody>
+        </table>
+    </div>
