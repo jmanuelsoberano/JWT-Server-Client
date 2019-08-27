@@ -1,1 +1,33 @@
-<p>product works!</p>
+<div class="box">
+    <h4>Product</h4>
+    <form>
+        <div class="from-group">
+            <label>Name</label>
+            <input name="productName" class="form-control" [(ngModel)]="product.productName" />
+        </div>
+        <div class="from-group">
+            <label>Date</label>
+            <input name="introductionDate" class="form-control" [ngModel]="product.introductionDate | date:'yyyy-MM-dd'" (ngModelChange)="product.introductionDate = $event" type="date" />
+        </div>
+        <div class="from-group">
+            <label>Price</label>
+            <input name="price" class="form-control" [(ngModel)]="product.price" />
+        </div>
+        <div class="from-group">
+            <label>URL</label>
+            <input name="url" class="form-control" [(ngModel)]="product.url" />
+        </div>
+        <div class="from-group">
+            <label>Category</label>
+            <select name="categories" class="form-control" [(ngModel)]="product.categoryId">
+                <option *ngFor="let category of categories" value="{{category.categoryId}}">
+                    {{ category.categoryName }}
+                </option>
+            </select>
+        </div>  
+        <div class="from-group">
+            <button class="btn btn-primary" (click)="saveProduct()">Save</button>
+            <button class="btn btn-default" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

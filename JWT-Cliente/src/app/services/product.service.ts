@@ -21,7 +21,7 @@ export class ProductService {
   }
 
   getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(`${APi_URL}id`);
+    return this.http.get<Product>(`${APi_URL}${id}`);
   }
 
   addProduct(entity: Product): Observable<any> {
@@ -33,7 +33,7 @@ export class ProductService {
   }
 
   deleteProduct(id: number): Observable<any> {
-    return this.http.delete(`${APi_URL}id`, httpOptions);
+    return this.http.delete(`${APi_URL}${id}`, httpOptions);
   }
 
 }

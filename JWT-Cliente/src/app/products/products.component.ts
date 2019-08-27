@@ -19,4 +19,11 @@ export class ProductsComponent implements OnInit {
     );
   }
 
+  deleteProduct(id: number) {
+    if (confirm('Delete this product?')) {
+      this.service.deleteProduct(id)
+        .subscribe(() =>  this.products = this.products.filter(p => p.productId != id));
+    }
+  }
+
 }

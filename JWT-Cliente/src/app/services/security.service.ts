@@ -42,6 +42,47 @@ export class SecurityService {
     localStorage.removeItem('bearerToken');
   }
 
+  hasClaim(claimType: any, claimValue?: any) {
+    let ret: boolean = false;
+
+    if (typeof claimType === 'string') {
+      ret = this.isClaimValid(claimType, claimValue);
+    } else {
+      let claims: string[] = claimType;
+      if (claims) {
+        for (let index = 0; index < claims.length; index++) {
+          ret = this.isClaimValid(claims[index]);
+          if (ret) {
+            break;
+          }
+        }
+      }
+    }
+
+    return ret;
+  }
+
+  isClaimValid(claimType: string, claimValue?: string): boolean {
+    let ret: boolean = false;
+    let auth: AppUserAuth = null;
+
+    auth = this.securityObject;
+    if (auth) {
+      if (claimType.indexOf(':') >= 0) {
+        let words: string[] = claimType.split(':');
+        claimType = words[0].toLowerCase();
+        claimValue = words[1];
+      } else {
+        claimType = claimType.toLowerCase();
+        claimValue = claimValue ? claimValue : 'true';
+      }
+      ret = auth.claims.find( c => 
+        c.claimType.toLowerCase() == claimType && c.claimValue == claimValue) != null;
+    }
+
+    return ret;
+  }
+  
   handleError(err: any) {
     return throwError(err.error);
   }
