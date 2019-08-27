@@ -17,7 +17,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
             return next.handle(newReq);
         } else {
             return next.handle(req);
-        }        
+        }
     }
 }
 
