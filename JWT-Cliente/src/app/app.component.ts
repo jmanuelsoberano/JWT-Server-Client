@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SecurityService } from './services/security.service';
+import { AppUserAuth } from './models/app-user-auth';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'JWT-Cliente';
+  
+  securityObject: AppUserAuth = null;
+
+  constructor(private service: SecurityService) {
+    this.securityObject = this.service.securityObject;
+  }
+
+  logout() {
+    this.service.logout();
+  }
 }

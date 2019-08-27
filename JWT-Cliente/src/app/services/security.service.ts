@@ -83,6 +83,10 @@ export class SecurityService {
     return ret;
   }
   
+  logout() {
+    this.resetSecutityObject();
+  }
+
   handleError(err: any) {
     return throwError(err.error);
   }
