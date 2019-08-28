@@ -3,8 +3,6 @@ import { SecurityService } from '../services/security.service';
 import { AppUser } from '../models/app-user';
 import { AppUserAuth } from '../models/app-user-auth';
 import { Router } from '@angular/router';
-import { pipe } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',

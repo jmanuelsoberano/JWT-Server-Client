@@ -10,7 +10,7 @@ import { ProductComponent } from './product/product.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorModule } from './services/http-interceptor.module';
-import { HasClaimDirective } from './services/has-claim.directive';
+import { HasClaimDirective } from './directives/has-claim.directive';
 
 @NgModule({
   declarations: [

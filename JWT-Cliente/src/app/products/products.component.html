@@ -22,12 +22,10 @@
                         <td>{{product.url}}</td>
                         <td>{{product.categoryId}}</td>
                         <td>
-                            <button (click)="deleteProduct(product.productId)" class="btn btn-danger">
-                                Delete
-                            </button>
+                            <a (click)="deleteProduct(product.productId)" >Delete</a>
                         </td>
                         <td>
-                            <a [routerLink]="[ '/product', product.productId ]">Editar</a>
+                            <a [routerLink]="[ '/product', product.productId ]">Edit</a>
                         </td>
                     </tr>    
                 </tbody>

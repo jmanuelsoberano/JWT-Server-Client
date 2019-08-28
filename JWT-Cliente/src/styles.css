@@ -12,4 +12,11 @@
     display: block;
     width: 100%;
     border: solid #f8f9fa;
+    border-width: 5px;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: blue;
 }

@@ -1,5 +1,5 @@
 import { Directive, TemplateRef, ViewContainerRef, Input } from '@angular/core';
-import { SecurityService } from './security.service';
+import { SecurityService } from '../services/security.service';
 
 @Directive({
   selector: '[hasClaim]'
